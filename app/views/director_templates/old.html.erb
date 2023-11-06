@@ -1,0 +1,11 @@
+<h1>Eldest director</h1>
+
+<p>The eldest director in our dataset right now is
+
+<%eldd = Director.all.order({ :dob => :asc }).where.not(:dob => nil).first%>
+
+<%formatted_date = Date.parse(eldd.dob.to_s).strftime('%B %d, %Y')%>
+
+<a href="/directors/<%=eldd.id%>"><%=eldd.name%></a>, born on <%=formatted_date%>
+
+</p>

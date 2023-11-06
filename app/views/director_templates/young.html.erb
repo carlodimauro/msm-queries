@@ -1,0 +1,13 @@
+<h1>Youngest director</h1>
+
+<p>The youngest director in our dataset right now is 
+
+<%yd = Director.all.order({ :dob => :desc }).first%>
+
+<%formatted_date = Date.parse(yd.dob.to_s).strftime('%B %d, %Y')%>
+
+<a href="/directors/<%=yd.id%>"><%=yd.name%></a>, born on <%=formatted_date%>
+
+</p>
+
+
